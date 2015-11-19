@@ -1,5 +1,6 @@
 var express = require('express');
 var load    = require('express-load');
+var bodyPaser = require('body-parser');
 var home    = require('../app/routes/home');
 
 module.exports = function() {
@@ -10,6 +11,9 @@ module.exports = function() {
 
     //Midleware
     app.use(express.static('./public')); //Arquivos Estaticos
+    app.use(bodyPaser.urlencoded({extended: true}));
+    app.use(bodyPaser.json());
+    app.use(require('method-override'));
     app.set('view engine', 'ejs'); //Template Engine
     app.set('views', './app/views'); //definições das Views
 
