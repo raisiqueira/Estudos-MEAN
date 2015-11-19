@@ -4,4 +4,4 @@ module.exports = function() {
         res.render('index', {nome: 'Express'});
     };
     return controller;
-}
+};
